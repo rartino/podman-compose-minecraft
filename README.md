@@ -51,7 +51,7 @@ And edit the configuration to your liking with, e.g., `nano .env`.
 Now download and build containers:
 ```
 podman-compose pull
-podman-compose build
+podman-compose build --no-cache
 ```
 
 ## Set up service (run as `service_minecraft` user)
