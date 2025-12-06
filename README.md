@@ -3,17 +3,19 @@ Run minecraft server using podman compose
 
 ## System configuration
 
-Your system must support `podman` and `podman-compose`.
+Your system must support `podman`, `podman-compose`, and `apt-cacher-ng`.
 
 On Ubuntu and similar, this should be sufficient:
 ```
-sudo apt install podman-compose
+sudo apt install podman-compose apt-cacher-ng
 ```
 
 Setup the podman-compose systemd service:
 ```
 sudo podman-compose systemd -a create-unit
 ```
+
+Set
 
 Create an ssh key to be able to ssh into service user accounts:
 ```
