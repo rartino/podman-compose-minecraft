@@ -8,10 +8,11 @@ services:
     container_name: minecraft
     volumes:
       - ./container-files/build:/root/minecraft/build
-      - ./container-files/world-data:/opt/minecraft/world-data
-      - ./container-files/server:/opt/minecraft/server
+      - ./container-files/server:/minecraft
+      - ./container-files/minecraft:/opt/minecraft/
     expose:
-      - "25565"
+      - "$JAVA_PORT"
+      - "$BEDROCK_PORT"
     restart: always
     networks:
       - backend

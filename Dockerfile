@@ -17,6 +17,6 @@ RUN apt-get update && apt-get -y dist-upgrade && \
     apt-get clean all
 
 USER minecraft
-WORKDIR /opt/minecraft/server
+WORKDIR /minecraft/server
 
-CMD ["bash", "/opt/minecraft/server/startup.sh"]
+CMD ["bash", "/opt/minecraft/startup.sh"]
