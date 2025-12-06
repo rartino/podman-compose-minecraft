@@ -20,6 +20,8 @@ Create an ssh key to be able to ssh into service user accounts:
 ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_services
 ```
 
+## Setup minecraft service user accout
+
 Set up a suitable user to run the minecraft service and allow it to run services
 ```
 sudo useradd -m -s /bin/bash service_minecraft
