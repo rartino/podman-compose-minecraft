@@ -92,3 +92,10 @@ If you just want to start the minecraft server manually (you may want to do this
 ```
 podman-compose up
 ```
+
+## Update
+
+To update system packages and rebuild the latest release:
+```
+podman-compose --podman-args='--target build_stage' build --no-cache
+```

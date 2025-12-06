@@ -1,0 +1,21 @@
+version: "3.9"
+
+env_file: .env
+
+services:
+  minecraft:
+    build: ./
+    container_name: minecraft
+    volumes:
+      - ./container-files/build:/root/minecraft/build
+      - ./container-files/world-data:/opt/minecraft/world-data
+      - ./container-files/server:/opt/minecraft/server
+    expose:
+      - "25565"
+    restart: always
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
