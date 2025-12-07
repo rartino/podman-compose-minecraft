@@ -10,9 +10,9 @@ services:
       - ./container-files/build:/root/minecraft/build
       - ./container-files/server:/minecraft
       - ./container-files/minecraft:/opt/minecraft/
-    expose:
-      - "$JAVA_PORT"
-      - "$BEDROCK_PORT"
+    ports:
+      - "${JAVA_PORT}:${JAVA_PORT}/tcp"
+      - "${BEDROCK_PORT}:${BEDROCK_PORT}/udp"
     restart: always
     networks:
       - backend
