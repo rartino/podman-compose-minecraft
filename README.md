@@ -15,8 +15,6 @@ Setup the podman-compose systemd service:
 sudo podman-compose systemd -a create-unit
 ```
 
-Set
-
 Create an ssh key to be able to ssh into service user accounts:
 ```
 ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_services
@@ -95,7 +93,20 @@ podman-compose up
 
 ## Update
 
+Swap over to the service_minecraft user:
+```
+ssh -A -i ~/.ssh/id_services service_minecraft@localhost
+cd services/minecraft
+```
+
 To update system packages and rebuild the latest release:
 ```
-podman-compose --podman-args='--target build_stage' build --no-cache
+systemctl --user stop podman-compose@minecraft
+make update
+podman-compose  --podman-args='--build-arg UPDATE_STAMP="$(date +%s)"' build
+
+systemctl --user start podman-compose@minecraft
 ```
+
+
+
