@@ -75,8 +75,8 @@ sudo systemctl --user -M service_minecraft@ status podman-compose@minecraft
 ```
 And turn off/on the running service as:
 ```
-sudo systemctl --user -M service_minecraft@ down podman-compose@minecraft
-sudo systemctl --user -M service_minecraft@ up podman-compose@minecraft
+sudo systemctl --user -M service_minecraft@ stop podman-compose@minecraft
+sudo systemctl --user -M service_minecraft@ start podman-compose@minecraft
 ```
 And disable/re-enable the autostart at boot as:
 ```
@@ -103,10 +103,5 @@ To update system packages and rebuild the latest release:
 ```
 systemctl --user stop podman-compose@minecraft
 make update
-podman-compose  --podman-args='--build-arg UPDATE_STAMP="$(date +%s)"' build
-
 systemctl --user start podman-compose@minecraft
 ```
-
-
-
