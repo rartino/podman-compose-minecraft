@@ -7,9 +7,7 @@ services:
     build: ./
     container_name: minecraft
     volumes:
-      - ./container-files/build:/root/minecraft/build
-      - ./container-files/server:/minecraft
-      - ./container-files/minecraft:/opt/minecraft/
+      - ./container-files/server:/minecraft/server
     ports:
       - "${JAVA_PORT}:${JAVA_PORT}/tcp"
       - "${BEDROCK_PORT}:${BEDROCK_PORT}/udp"
